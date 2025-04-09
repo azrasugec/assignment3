@@ -1,4 +1,4 @@
-# import_nodes.py
+import csv
 
 class Node:
     def __init__(self, id, latitude, longitude, name):
@@ -7,13 +7,11 @@ class Node:
         self.longitude = longitude
         self.name = name
 
-import csv
-
 def import_csv(filename):
     nodes = []
     with open(filename, 'r') as file:
         reader = csv.reader(file)
-        next(reader)  # Skip header
+        next(reader)  # başlığı atla
         for row in reader:
             id = row[0]
             latitude = row[1]
@@ -21,5 +19,6 @@ def import_csv(filename):
             name = row[3]
             nodes.append(Node(id, latitude, longitude, name))
     return nodes
+
 
 

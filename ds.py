@@ -1,5 +1,3 @@
-# ds.py
-
 class LinkedListNode:
     def __init__(self, data):
         self.data = data
@@ -8,29 +6,23 @@ class LinkedListNode:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.count = 0  # num_items için sayaç
 
     def add_node(self, node):
         node.next = self.head
         self.head = node
+        self.count += 1
 
     def remove_node(self):
         if self.head is None:
             return None
         removed = self.head
         self.head = self.head.next
+        self.count -= 1
         return removed
 
-    def count(self):
-        count = 0
-        current = self.head
-        while current:
-            count += 1
-            current = current.next
-        return count
-
-    @property
     def num_items(self):
-        return self.count()
+        return self.count
 
 class Stack:
     def __init__(self):
