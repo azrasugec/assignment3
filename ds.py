@@ -1,3 +1,5 @@
+# ds.py
+
 class LinkedListNode:
     def __init__(self, data):
         self.data = data
@@ -18,6 +20,18 @@ class LinkedList:
         self.head = self.head.next
         return removed
 
+    def count(self):
+        count = 0
+        current = self.head
+        while current:
+            count += 1
+            current = current.next
+        return count
+
+    @property
+    def num_items(self):
+        return self.count()
+
 class Stack:
     def __init__(self):
         self.top = LinkedList()
@@ -31,6 +45,7 @@ class Stack:
 
     def peek(self):
         return self.top.head
+
 
 
 
